@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/mman.h>
+int main()
+{
+	pid_t child_pid; // pid_t is like an int
+
+	printf("The main program process ID is %d\n", (int)getpid());
+
+	/* fork returns new child process id to parent and 0 to child */
+	child_pid = fork();
+        /* If its > 0 its parent process */ 	
+	if (child_pid > 0)
+	{
+		printf("This is the parent process,with id %d\n", (int)getpid());
+		printf("The child’s process ID is %d\n", (int)child_pid);
+	}
+	/* If its zero then its child process */
+	else if (child_pid == 0) 
+	{
+		printf ("This is the child process, with id %d\n", (int)getpid());
+		printf ("PPID is %d\n", (int)getppid()); //parent pid
+	}
+	else
+	{
+		perror("fork");
+		exit(1);
+	}
+
+	sleep(2);
+	printf("I am done %d\n", (int)getpid());
+	return 0;
+}
+Output:
+he main program process ID is 867
+This is the parent process,with id 867
+The child’s process ID is 868
+This is the child process, with id 868
+PPID is 867
+I am done 867
+I am done 868
