@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include <unistd.h>
+
+int main()
+{
+		printf("Hello\n");
+		printf("Before exec PId of the process is %d\n",getpid());
+		printf("Before exec Parent  PId of the process is %d\n",getppid());
+
+
+		char *const argv[] = {"ls","-l",(char *)NULL};
+		//execute ls 
+		execv("/bin/ls",argv);
+
+		printf("The exec function failed\n");
+}
+OUtput:
+Hello
+Before exec PId of the process is 1319
+Before exec Parent  PId of the process is 1
+total 68
+-rwxr-xr-x 1 runner runner 55304 Nov  3 08:59 main
+-rw-r--r-- 1 runner runner   411 Oct 13 22:06 Makefile
+-rw-r--r-- 1 runner runner   338 Nov  3 08:59 programs.c
+-rw-r--r-- 1 runner runner    81 Jan 18  2022 replit.nix
