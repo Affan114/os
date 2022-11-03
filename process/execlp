@@ -11,3 +11,13 @@ int main()
 		execlp("ls","ls","-l",(char *)NULL);
 		printf("The exec function failed\n");
 }
+Output
+Hello
+Before exec PId of the process is 1249
+Before exec Parent  PId of the process is 1
+total 124
+-rwxr-xr-x 1 runner runner 54552 Nov  3 08:55 a.out
+-rwxr-xr-x 1 runner runner 55040 Nov  3 08:58 main
+-rw-r--r-- 1 runner runner   411 Oct 13 22:06 Makefile
+-rw-r--r-- 1 runner runner   302 Nov  3 08:57 programs.c
+-rw-r--r-- 1 runner runner    81 Jan 18  2022 replit.nix
