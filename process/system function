@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+
+	system("ps");
+
+}
+Output:
+ PID TTY          TIME CMD
+    427 pts/0    00:00:00 main
+    428 pts/0    00:00:00 sh
+    429 pts/0    00:00:00 ps
